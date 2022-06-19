@@ -1,0 +1,116 @@
+.techs {
+    background-color: #F5F5F5;
+    margin: 0;
+    padding: 0;
+    align-self: stretch;
+}
+
+.techs__title-container {
+    margin: 0 auto;
+    padding: 100px 70px 0;
+}
+
+.techs__title {
+    margin: 0 auto;
+    padding: 0 0 23px;
+    border-bottom: 1px solid #000;
+    color: #000;
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 27px;
+}
+
+.techs__about-container {
+    margin: 0 auto;
+    padding: 90px 0 100px;
+    max-width: 600px;
+}
+
+.techs__subtitle {
+    margin: 0;
+    margin-bottom: 25px;
+    font-weight: 400;
+    font-size: 50px;
+    line-height: 58px;
+    text-align: center;
+    color: #000000;
+}
+
+.techs__text {
+    margin: 0 auto;
+    max-width: 460px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    text-align: center;
+    color: #000000;
+}
+
+
+.techs__info-container {
+    margin: 0 0 100px 0;
+    display: grid;
+    justify-content: center;
+    grid-auto-flow: row;
+    grid-template-columns: repeat(auto-fit, 90px);
+    grid-template-rows: repeat(auto-fit, 60px);
+    grid-auto-rows: 57px;
+    gap: 10px;
+}
+
+.techs__number {
+    margin: 0;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #000;
+    background-color: #E8E8E8;
+    border-radius: 10px;
+}
+
+
+@media screen and (max-width: 768px) {
+    .techs__number {
+        font-size: 12px;
+        line-height: 14px;
+    }
+
+    .techs__title-container {
+        padding: 90px 50px 0;
+    }
+
+    .techs__info-container {
+        margin: 0 0 90px 0;
+        grid-template-columns: repeat(auto-fit, 84px);
+        grid-template-rows: repeat(auto-fit, 57px);
+    }
+
+}
+
+
+@media screen and (max-width: 320px) {
+    .techs__number {
+        font-size: 12px;
+        line-height: 14px;
+    }
+
+    .techs__title {
+        font-size: 18px;
+    }
+
+    .techs__title-container {
+        padding: 90px 18px 0;
+    }
+
+    .techs__subtitle {
+        font-size: 30px;
+    }
+
+    .techs__info-container {
+        margin: 0 71px 70px;
+    }
+}

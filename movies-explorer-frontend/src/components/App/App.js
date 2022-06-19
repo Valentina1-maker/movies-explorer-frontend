@@ -1,23 +1,36 @@
+import React from "react";
 import './App.css';
-import '../Header/Header'
+import Main from '../Main/Main'
+import { Route } from "react-router-dom";
+import { BrowserRouter, Switch } from "react-router-dom";
+import { Redirect } from "react-router-dom";
+import Register from "../Register/Register";
+import Login from "../Login/Login";
+//const CurrentUserContext = React.createContext();
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <div className="root">
+        <Switch>
+          <Route exact path="/">
+            <Main />
+          </Route>
+          <Route path="/sign-up">
+            <Register />
+          </Route>
+          <Route path="/sign-in">
+            <Login />
+          </Route>
+          <Route path="*">
+            <Redirect to="/"/>
+          </Route>
+
+        </Switch>
+      </div>
+      </BrowserRouter>
+    
   );
 }
 
