@@ -1,6 +1,6 @@
 import React from "react";
 import './SearchForm.css';
-import FilterCheckbox from'../FilterCheckbox/FilterCheckbox'
+// import FilterCheckbox from '../FilterCheckbox/FilterCheckbox'
 
 
 function SearchForm() {
@@ -19,7 +19,7 @@ function SearchForm() {
                 type="submit"
                 value="Найти"/>
             </form>
-            <FilterCheckbox/>
+            {/* <FilterCheckbox/> */}
           </div>
         </section>
       );

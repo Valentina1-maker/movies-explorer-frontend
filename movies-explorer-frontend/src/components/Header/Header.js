@@ -5,7 +5,7 @@ import "./Header.css"
 
 function Header({loggedIn}) {
     return (
-        <header className="header">
+        <header className="header__main">
             <img
                 src={logo}
                 alt="Здесь должен быть логотип"
@@ -48,10 +48,9 @@ function Header({loggedIn}) {
                         <ul className="header__links">
                             <li className="header__li">
                                 <NavLink
-                                    to="/sign-up"
+                                    to="/signup"
                                     className="header__link"
-                                    activeClassName='header__link_active'>
-                                    Регистрация
+                                    activeClassName='header__link_active'>Регистрация
                                 </NavLink>
                             </li>
                             <li className="header__li">
@@ -65,7 +64,8 @@ function Header({loggedIn}) {
                         </ul>
                     </nav>
                         </>
-                    )} 
+                    )}
+                   
             </div>
         </header>
     );

@@ -1,12 +1,12 @@
 import React from "react";
 import './App.css';
 import Main from '../Main/Main'
-import { Route } from "react-router-dom";
-import { BrowserRouter, Switch } from "react-router-dom";
-import { Redirect } from "react-router-dom";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+// import { Redirect } from "react-router-dom";
 import Register from "../Register/Register";
 import Login from "../Login/Login";
-//const CurrentUserContext = React.createContext();
+import Movies from "../Movies/Movies"
+
 
 
 function App() {
@@ -17,20 +17,20 @@ function App() {
           <Route exact path="/">
             <Main />
           </Route>
-          <Route path="/sign-up">
-            <Register />
+          <Route exact path="/movies">
+             <Movies />
+          </Route>
+          <Route exact path="/signup">
+             <Register />
           </Route>
           <Route path="/sign-in">
             <Login />
           </Route>
-          <Route path="*">
-            <Redirect to="/"/>
-          </Route>
-
         </Switch>
       </div>
-      </BrowserRouter>
-    
+    </BrowserRouter>
+      
+      
   );
 }
 

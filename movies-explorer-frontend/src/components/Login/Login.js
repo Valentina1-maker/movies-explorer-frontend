@@ -1,7 +1,6 @@
 import React from "react";
-import Header from "../Header/Header";
 import { useState } from "react";
-import { useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./Login.css"
 
 function Login({ handleLogin }) {
@@ -9,8 +8,6 @@ function Login({ handleLogin }) {
         email: "",
         password: "",
     });
-
-    const history = useHistory();
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -27,43 +24,53 @@ function Login({ handleLogin }) {
     };
     return (
         <>
-            <Header
-                mailHandler=""
-                buttonText="Регистрация"
-                linkHandler={() => history.push("/sign-up")}
-                buttonClass=""
-            />
-            <section className="register">
-                <h2 className="popup__title register__title">Вход</h2>
-                <form className="popup__form register__form" onSubmit={handleSubmit}>
-                    <input
-                        required
-                        name="email"
-                        type="email"
-                        className="register__input register__input_type_email"
-                        placeholder="Email"
-                        minLength="5"
-                        maxLength="40"
-                        value={data.email}
-                        onChange={handleChange}
-                    />
+            <section className="login">
+                <div className="login__header">
+                    <Link to="/" className="login__logo" />
+                    <h1 className="login__greeting">Рады видеть!</h1>
+                </div>
+                <form className="login__form" onSubmit={handleSubmit}>
+                    <label className="login__form-inputs">E-mail
+                        <input
+                            required
+                            name="email"
+                            type="email"
+                            className="login__input"
+                            placeholder="Email"
+                            minLength="5"
+                            maxLength="40"
+                            value={data.email}
+                            onChange={handleChange}
+                        />
+                    </label>
 
-                    <input
-                        required
-                        name="password"
-                        type="password"
-                        className="register__input register__input_type_password"
-                        placeholder="Пароль"
-                        minLength="1"
-                        maxLength="40"
-                        value={data.password}
-                        onChange={handleChange}
-                    />
-
-                    <button type="submit" className="popup__submit register__button">
+                    <label className="login__form-inputs">Пароль
+                        <input
+                            required
+                            name="password"
+                            type="password"
+                            className="login__input"
+                            placeholder="Пароль"
+                            minLength="1"
+                            maxLength="40"
+                            value={data.password}
+                            onChange={handleChange}
+                        />
+                    </label>
+                    <button type="submit" className="login__button">
                         Войти
                     </button>
                 </form>
+
+                <div className="login__register">
+                    <p className="login__register-text">
+                        Ещё не зарегистрированы&#63;&nbsp;
+                    </p>
+                    <Link to="/signup" className="login__register-link">
+                        Регистрация
+                    </Link>
+                </div>
+
             </section>
         </>
     );
