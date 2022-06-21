@@ -40,6 +40,7 @@ function Movies() {
                                     activeClassName='header__link_active'>
                                     Аккаунт
                                 </NavLink>
+                                <div className='header__link_button-profile'></div>
                             </li>
                         </ul>
                     </nav>
