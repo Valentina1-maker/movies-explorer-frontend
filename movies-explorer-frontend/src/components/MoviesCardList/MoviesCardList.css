@@ -1,78 +1,84 @@
 .cards {
     display: flex;
     flex-direction: column;
-    width: 100%;
-    padding: 70px 70px 80px;
-    justify-content: flex-start;
-    align-items: center;
-    transition: .4s;
-  }
-  
-  .cards__container {
+    padding: 0 70px 80px;
+    margin: 0 auto;
+    max-width: 1280px;
+}
+
+.cards__container {
     display: grid;
-    justify-items: center;
-    align-items: center;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(auto-fit, 270px);
+    grid-template-rows: repeat(auto-fit, 230px);
+    grid-auto-flow: row;
+    grid-auto-flow: 230px;
     gap: 38px 20px;
-    width: 100%;
-    transition: .4s;
-  }
-  
-  .cards__more-button {
-    cursor: pointer;
+    margin: 0 auto;
+    max-width: 100%;
+
+}
+
+.cards__more-button {
     margin: 50px 0 0 0;
     padding: 0;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 320px;
-    height: 36px;
-    background: inherit;
-    border: solid 1px #424242;
+    width: 100%;
+    min-height: 36px;
+    background-color: #F9F9F9;
+    border: none;
     border-radius: 6px;
     font-weight: 500;
     font-size: 12px;
     line-height: 15px;
-    color: #FFFFFF;
-    transition: .4s;
-  }
-  
-  .cards__more-button:hover {
+    color: #000000;
+}
+
+.cards__more-button:hover {
+    cursor: pointer;
     opacity: 0.8;
-  }
-  
-  @media screen and (max-width: 1297px) {
+}
+
+@media screen and (max-width: 1280px) {
     .cards__container {
-      grid-template-columns: repeat(3, 1fr);
-      gap: 30px;
+        gap: 30px 15px;
     }
-  }
-  
-  @media screen and (max-width: 1237px) {
+}
+
+
+@media screen and (max-width: 768px) {
     .cards__container {
-      grid-template-columns: repeat(2, 1fr);
-      gap: 30px;
+        grid-template-columns: repeat(auto-fit, 339px);
+        grid-template-rows: repeat(auto-fit, 190px);
+        gap: 30px;
+        max-width: 100%;
     }
-  
+
     .cards {
-      padding: 70px 30px 80px;
-  
+        padding: 40px 10px 80px;
+
     }
-  }
-  
-  @media screen and (max-width: 785px) {
-    .cards__container {
-      grid-template-columns: 1fr;
-      gap: 34px;
-    }
-  
-    .cards {
-      padding: 40px 10px 80px;
-  
-    }
-  
+
     .cards__more-button {
-      width: 240px;
+        width: 100%;
     }
-  }
-  
+}
+
+
+@media screen and (max-width: 320px) {
+    .cards__container {
+        grid-template-columns: repeat(auto-fit, 300px);
+        grid-template-rows: repeat(auto-fit, 168px);
+        max-width: 100%;
+    }
+
+    .cards {
+        padding: 40px 10px 80px;
+
+    }
+
+    .cards__more-button {
+        width: 100%;
+    }
+}
