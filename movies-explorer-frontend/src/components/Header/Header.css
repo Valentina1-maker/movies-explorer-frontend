@@ -12,6 +12,7 @@
 .header__movies {
   background-color: #FFFFFF;
   display: flex;
+  justify-content: space-between;
   align-items: center;
   min-height: 74px;
   padding: 0 70px;
