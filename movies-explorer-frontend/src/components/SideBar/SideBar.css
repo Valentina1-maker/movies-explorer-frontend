@@ -41,7 +41,6 @@
   background-size: contain;
   width: 32px;
   height: 32px;
-  transition: .4s;
   cursor: pointer;
 }
 
@@ -59,17 +58,16 @@
 }
 
 .sidebar__links {
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
   margin: 0;
   padding: 0;
-  height: 100%;
 }
 
 .sidebar__li {
- 
   display: flex;
   justify-content: center;
   align-items: center;
@@ -92,7 +90,6 @@
   font-size: 18px;
   line-height: 22px;
   text-decoration: none;
-  transition: .4s;
 }
 
 .sidebar__link:hover {

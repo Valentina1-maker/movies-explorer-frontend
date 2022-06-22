@@ -6,6 +6,8 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Register from "../Register/Register";
 import Login from "../Login/Login";
 import Movies from "../Movies/Movies"
+import Profile from "../Profile/Profile";
+import SavedMovies from "../SavedMovies/SavedMovies"
 
 
 
@@ -17,8 +19,14 @@ function App() {
           <Route exact path="/">
             <Main />
           </Route>
+          <Route exact path="/profile">
+            <Profile />
+          </Route>
           <Route exact path="/movies">
              <Movies />
+          </Route>
+          <Route exact path="/saved-movies">
+             <SavedMovies />
           </Route>
           <Route exact path="/signup">
              <Register />

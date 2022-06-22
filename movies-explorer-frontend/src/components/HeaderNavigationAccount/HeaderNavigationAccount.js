@@ -1,11 +1,10 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
-// import AccountLink from '../AccountLink/AccountLink';
 
 function HeaderNavigationAccount() {
   return (
-    <nav className='header__navigation header__navigation_logged-in'>
+    <nav className='header__navigation_account header__navigation_logged-in'>
       <ul className='header__links header__links_logged-in'>
         <li className='header__li header__li_logged-in'>
           <NavLink

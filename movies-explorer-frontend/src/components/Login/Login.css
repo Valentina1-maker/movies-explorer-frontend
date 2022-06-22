@@ -41,7 +41,6 @@
     background-color: #F9F9F9;
     font-size: 13px;
     border-radius: 8px;
-    width: 100%;
     border: none;
 }
 
@@ -73,5 +72,45 @@
     display: flex;
     align-items: center;
 }
+
+
+@media screen and (max-width: 768px) {
+    .login{
+        padding: 232px 0;
+    }
+}
+
+@media screen and (max-width: 425px) {
+    .login{
+        max-width: 290px;
+
+    }
+}
+  
+  @media screen and (max-width: 320px) {
+    .login {
+        max-width: 260px;
+    }
+
+    .login__register-text {
+        font-size: 12px;
+    }
+    
+    .login__register-link {
+        font-size: 12px;
+    }
+
+    .login__form-inputs {
+        max-width: 260px;
+    }
+    
+    .login__input {
+        max-width: 260px;
+    }
+
+    .login__form-inputs {
+        max-width: 260px;
+    }
+  }
 
 

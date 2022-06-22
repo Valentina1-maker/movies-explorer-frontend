@@ -1,0 +1,152 @@
+
+  .profile {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    box-sizing: border-box;
+    width: 100%;
+  }
+  
+  .profile__greeting {
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 29px;
+    color: #000;
+    margin: 76px 0 106px 0;
+  }
+  
+  .profile__form {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    max-width: 410px;
+  }
+  
+  .profile__form-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    width: 100%;
+  } 
+  
+  .profile__input-field {
+    display: flex;
+    justify-content: space-between;
+    padding: 17px 0 16px 0;
+    border-bottom: solid 1px #E8E8E8;
+    font-weight: 500;
+    font-size: 11px;
+    line-height: 13px;
+    position: relative;
+    color: #000;
+  }
+  
+  .profile__input-field:last-of-type {
+    border-bottom: none;
+  }
+  
+  .profile__input{
+    border: none;
+    outline:none;
+    text-align: right;
+    font-weight: normal;
+    font-size: 11px;
+    line-height: 13px;
+    color: #000;
+  }
+  
+  .profile__input:focus {
+    font-weight: 500;
+  }
+  
+  .profile__button-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    position: relative;
+  }
+  
+  .profile__button-edit {
+    margin: 204px 0 0 0;
+    font-weight: normal;
+    background-color: #fff;
+    font-size: 13px;
+    line-height: 16px;
+    color: #000;
+    cursor: pointer;
+    border: none;
+    padding: 0;
+    position: relative;
+  }
+  
+  .profile__button-edit:hover {
+    cursor: pointer;
+    opacity: .7;
+  }
+  
+  .profile__button-logout {
+    margin: 16px 0 70px 0;
+    background-color: #fff;
+    color: #EE3465;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 16px;
+    cursor: pointer;
+    border: none;
+    padding: 0;
+  }
+  
+  .profile__button-logout:hover {
+    cursor: pointer;
+    opacity: .7;
+  }
+  
+  
+  @media screen and (max-width: 800px) {
+    .profile__greeting {
+      margin: 236px 0 0 0;
+    }
+  
+    .profile__form {
+      margin: 89px 0 0 0;
+    }
+  
+    .profile__button-edit {
+      margin: 194px 0 0 0;
+    }
+  
+    .profile__button-logout {
+      margin: 16px 0 269px 0;
+    }
+  }
+  
+  @media screen and (max-width: 500px) {
+    .profile__greeting {
+      margin: 70px 0 0 0;
+    }
+  
+    .profile__form {
+      margin: 63px 0 0 0;
+    }
+  
+    .profile__button-edit {
+      margin: 363px 0 0 0;
+      font-size: 12px;
+      line-height: 15px;
+    }
+  
+    .profile__button-logout {
+      margin: 16px 0 40px 0;
+      font-size: 12px;
+      line-height: 15px;
+    }
+  
+    .profile {
+      padding: 0 30px;
+    }
+  }

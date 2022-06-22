@@ -3,6 +3,7 @@
     margin: 0;
     padding: 0;
     align-self: stretch;
+    padding-bottom: 100px;
 }
 
 .techs__title-container {
@@ -49,7 +50,7 @@
 
 
 .techs__info-container {
-    margin: 0 0 100px 0;
+    margin: 0;
     display: grid;
     justify-content: center;
     grid-auto-flow: row;
@@ -74,6 +75,9 @@
 
 
 @media screen and (max-width: 768px) {
+    .techs {
+        padding-bottom: 90px;
+    }
     .techs__number {
         font-size: 12px;
         line-height: 14px;
@@ -84,7 +88,6 @@
     }
 
     .techs__info-container {
-        margin: 0 0 90px 0;
         grid-template-columns: repeat(auto-fit, 84px);
         grid-template-rows: repeat(auto-fit, 57px);
     }

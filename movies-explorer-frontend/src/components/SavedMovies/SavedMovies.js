@@ -1,13 +1,12 @@
 import React from "react";
 import SearchForm from "../SearchForm/SearchForm";
-import "./Movies.css"
+import "./SavedMovies.css"
 import { Link } from "react-router-dom";
 import Footer from "../Footer/Footer";
 import MoviesCardList from "../MoviesCardList/MoviesCardList";
 import HeaderNavigationAccount from "../HeaderNavigationAccount/HeaderNavigationAccount";
 import { useState } from 'react';
 import SideBar from "../SideBar/SideBar"
-import ButtonCardsMore from "../ButtonCardsMore/ButtonCardsMore";
 
 
 function Movies() {
@@ -19,7 +18,7 @@ function Movies() {
 
     return (
         <>
-            <section className="movies">
+            <section className="savedmovies">
                 <div className="header__movies">
                     <Link to="/" className="header__logo_movies" />
                     <button type="button" onClick={handleSideBarState} class="header__sidebar-button"></button>
@@ -27,7 +26,6 @@ function Movies() {
                 </div>
                 <SearchForm />
                 <MoviesCardList />
-                <ButtonCardsMore />
                 <Footer />
                 <SideBar isSideBarOpened={isSideBarOpened}
                     handleSideBarState={handleSideBarState} />

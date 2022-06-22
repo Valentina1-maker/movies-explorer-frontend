@@ -3,7 +3,7 @@ import logo from "../../images/logo-header.svg";
 import { NavLink } from "react-router-dom";
 import "./Header.css"
 
-function Header({loggedIn}) {
+function Header() {
     return (
         <header className="header__main">
             <img
@@ -12,12 +12,7 @@ function Header({loggedIn}) {
                 className="header__logo"
             />
             <div className="header__menu">
-                {loggedIn ? (
-                <>
-                
-                    </> ) : (
-                        <>
-                         <nav className="header__navigation">
+                        <nav className="header__navigation">
                         <ul className="header__links">
                             <li className="header__li">
                                 <NavLink
@@ -36,9 +31,6 @@ function Header({loggedIn}) {
                             </li>
                         </ul>
                     </nav>
-                        </>
-                    )}
-                   
             </div>
         </header>
     );
