@@ -8,10 +8,6 @@ body {
 #root {
   width: 100%;
   height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
   min-width: 320px;
   font-family: "Inter", "Arial", sans-serif;
   color: white;

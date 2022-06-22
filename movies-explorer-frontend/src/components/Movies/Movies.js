@@ -3,11 +3,13 @@ import SearchForm from "../SearchForm/SearchForm";
 import logo from "../../images/logo-movies.svg";
 import { NavLink } from "react-router-dom";
 import Footer from "../Footer/Footer";
+import MoviesCardList from "../MoviesCardList/MoviesCardList";
 
 
 function Movies() {
     return (
       <>
+      <section className="movies">
       <header className="header__movies">
             <img
                 src={logo}
@@ -46,11 +48,10 @@ function Movies() {
                     </nav>
             </div>
       </header>
-      <main className="content">
-          <SearchForm/>
-      </main>
-          
+        <SearchForm/>
+        <MoviesCardList />
         <Footer />
+        </section>
       </>
       )
     }

@@ -3,7 +3,8 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    min-width: 396px;
+    margin: 0 auto;
+    max-width: 396px;
 }
 
 .login__logo{
@@ -22,10 +23,13 @@
     color: black;
 }
 
+.login__form {
+    min-width: 100%;
+}
+
 .login__form-inputs {
     display: flex;
     flex-direction: column;
-    align-items: stretch;
     font-size: 10px;
     color: #A0A0A0
 }
