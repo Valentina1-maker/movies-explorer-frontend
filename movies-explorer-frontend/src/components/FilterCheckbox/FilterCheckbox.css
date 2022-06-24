@@ -1,6 +1,6 @@
 .checkbox {
   display: flex;
-  margin: 41px 0 0 0;
+  margin: 41px 0 47px 0;
 }
 
 .checkbox__form-label {
@@ -11,6 +11,8 @@
 
 .checkbox__input {
   display: flex;
+  width: 36px;
+  height: 20px;
 }
 
 .checkbox__input_hidden {
@@ -30,11 +32,11 @@
 }
 
 .checkbox__input_hidden:checked+.checkbox__input_visible {
-  background: url("../../images/smalltumb.png");
+  background: url("../../images/smalltumboff2.png");
 }
 
 .checkbox__input_hidden+.checkbox__input_visible {
-  background: url("../../images/smalltumboff2.png");
+  background: url("../../images/smalltumb.png");
 }
 
 .checkbox__form-text {
