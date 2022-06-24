@@ -12,7 +12,7 @@
 .header__movies {
   background-color: #FFFFFF;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
   min-height: 74px;
   padding: 0 70px;
@@ -23,18 +23,20 @@
 .header__logo {
   width: 38px;
   height: 38px;
+  overflow: hidden; 
+  background-size: contain;
 }
 
 .header__logo_movies {
   width: 38px;
   height: 38px;
-  background: url(../../images/logo-movies.svg);
+  background-image: url(../../images/logo-movies.svg);
 }
 
 .header__logo_profile{
   width: 38px;
   height: 38px;
-  background: url(../../images/logo-movies.svg);
+  background-image: url(../../images/logo-movies.svg);
 }
 
 .header__menu {
@@ -43,12 +45,8 @@
   align-items: center;
 }
 
-.header__menu_type_movies {
-  color: #000;
-  display: flex;
-}
 
-.header__navigation {
+.header__navigation_account {
   display: flex;
   width: 100%;
 }
@@ -59,6 +57,13 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  min-width: 100%;
+}
+
+
+.header__links_movies {
+  display: flex;
+  align-items: center;
 }
 
 .header__li {
@@ -67,22 +72,14 @@
 }
 
 .header__li:last-of-type {
-  margin-left: 50px;
-}
-
-.header__li_logged-in {
+  display: flex;
   margin: 0;
-}
-
-.header__li_logged-in:first-of-type {
-  margin: 0 20px 0 0;
 }
 
 .header__link {
   margin: 0;
   display: flex;
   align-items: center;
-  justify-content: center;
   text-decoration: none;
   color: #fff;
   font-style: normal;
@@ -113,23 +110,13 @@
   align-items: center;
   background-color: #3ddc84;
   color: #000;
+  font-size: 12px;
   border-radius: 3px;
   cursor: pointer;
 }
 
 .header__link_entry-button:hover {
   opacity: .8;
-}
-
-.header__link_button-profile {
-  background-color: #F5F5F5;
-  background-image: url(../../images/button-profile.svg);
-  height: 30px;
-  width: 26px;
-  border-radius: 4px;
-  margin-left: 17px;
-  background-repeat: no-repeat;
-  background-position: center;
 }
 
 .font-weight-400 {
@@ -139,11 +126,13 @@
 .header__link_account-button {
   width: 100px;
   height: 32px;
+  display: flex;
+  justify-content: center;
+  background-color: #F9F9F9;
   color: #000;
   border-radius: 20px;
   font-size: 14px;
   line-height: 16px;
-  transition: linear .3s;
 }
 
 .header__link_account-button:hover {
@@ -151,13 +140,15 @@
 }
 
 .header__li_account-button {
-  margin-left: auto;
-  right: 0;
+  text-align: center;
 }
+
+
 
 .header__sidebar-button {
   margin: 0;
   padding: 0;
+  justify-content: flex-end;
   background-color: #fff;
   border: none;
   display: none;
@@ -165,7 +156,6 @@
   background-size: contain;
   width: 44px;
   height: 44px;
-  transition: .4s;
   cursor: pointer;
 }
 
@@ -182,6 +172,7 @@
 
   .header__movies {
     padding: 0 30px;
+    justify-content: space-between;
   }
 
   .header__link {
@@ -218,6 +209,11 @@
 
 @media screen and (max-width: 320px) {
   .header__main {
+    padding: 0 18px;
+  }
+
+  .header__movies{
+    justify-content: space-between;
     padding: 0 18px;
   }
 }

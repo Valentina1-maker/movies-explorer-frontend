@@ -87,7 +87,7 @@
 
 @media screen and (max-width: 768px) {
     .search {
-        padding: 60px 30px 68px;
+        padding: 60px 30px 10px;
         box-sizing: border-box;
     }
 

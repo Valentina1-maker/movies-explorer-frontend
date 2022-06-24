@@ -9,9 +9,9 @@
 .cards__container {
     display: grid;
     grid-template-columns: repeat(auto-fit, 270px);
-    grid-template-rows: repeat(auto-fit, 230px);
+    grid-template-rows: repeat(auto-fit, 218px);
     grid-auto-flow: row;
-    grid-auto-flow: 230px;
+    grid-auto-flow: 257px;
     gap: 38px 20px;
     margin: 0 auto;
     max-width: 100%;
@@ -50,13 +50,15 @@
 @media screen and (max-width: 768px) {
     .cards__container {
         grid-template-columns: repeat(auto-fit, 339px);
-        grid-template-rows: repeat(auto-fit, 190px);
+        grid-template-rows: repeat(auto-fit, 257px);
+        grid-auto-flow: row;
+        grid-auto-flow: 235px;
         gap: 30px;
         max-width: 100%;
     }
 
     .cards {
-        padding: 40px 10px 80px;
+        padding: 60px 10px 80px;
 
     }
 
@@ -69,7 +71,9 @@
 @media screen and (max-width: 320px) {
     .cards__container {
         grid-template-columns: repeat(auto-fit, 300px);
-        grid-template-rows: repeat(auto-fit, 168px);
+        grid-template-rows: repeat(auto-fit, 235px);
+        grid-auto-flow: row;
+        grid-auto-flow: 235px;
         max-width: 100%;
     }
 

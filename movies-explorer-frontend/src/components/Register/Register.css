@@ -16,15 +16,13 @@
 }
 
 .register__title {
+    margin: 0;
+    margin: 40px 0;
     font-weight: 500;
     font-size: 24px;
     line-height: 29px;
     color: black;
 }
-/* 
-.register__form {
-    min-width: 100%;
-} */
 
 
 .register__form-input {
@@ -38,10 +36,10 @@
     min-height: 46px;
     padding-left: 15px;
     margin: 10px 0 20px;
-    background-color: #F9F9F9;
     font-size: 13px;
     border-radius: 8px;
     border: none;
+    border-bottom: solid 1px #E8E8E8;
 }
 
 .register__input:last-of-type {
@@ -98,9 +96,16 @@
 
     }
 }
-  
-  @media screen and (max-width: 320px) {
+
+@media screen and (max-width: 320px) {
     .register {
         max-width: 260px;
+        align-items: center;
     }
-  }
+
+    .register__title {
+        margin: 0;
+        margin: 50px 0 80px;
+
+    }
+}
