@@ -2,14 +2,13 @@
     display: flex;
     flex-direction: column;
     padding: 0 70px 80px;
-    margin: 0 auto;
     max-width: 1280px;
 }
 
 .cards__container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, 270px);
-    grid-template-rows: repeat(auto-fit, 218px);
+    grid-template-columns: repeat(auto-fill, 270px);
+    grid-template-rows: repeat(auto-fill, 218px);
     grid-auto-flow: row;
     grid-auto-flow: 257px;
     gap: 38px 20px;
@@ -49,8 +48,8 @@
 
 @media screen and (max-width: 768px) {
     .cards__container {
-        grid-template-columns: repeat(auto-fit, 339px);
-        grid-template-rows: repeat(auto-fit, 257px);
+        grid-template-columns: repeat(auto-fill, 339px);
+        grid-template-rows: repeat(auto-fill, 257px);
         grid-auto-flow: row;
         grid-auto-flow: 235px;
         gap: 30px;
@@ -68,10 +67,10 @@
 }
 
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 377px) {
     .cards__container {
         grid-template-columns: repeat(auto-fit, 300px);
-        grid-template-rows: repeat(auto-fit, 235px);
+        /* grid-template-rows: repeat(auto-fit, 235px); */
         grid-auto-flow: row;
         grid-auto-flow: 235px;
         max-width: 100%;

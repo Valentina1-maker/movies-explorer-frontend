@@ -95,7 +95,7 @@
 }
 
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 425px) {
     .techs__number {
         font-size: 12px;
         line-height: 14px;
@@ -103,6 +103,10 @@
 
     .techs__title {
         font-size: 18px;
+    }
+
+    .techs__text {
+        max-width: 292px;
     }
 
     .techs__title-container {
