@@ -3,7 +3,7 @@
     min-height: 608px;
     margin: 0;
     padding: 0;
-    align-self: stretch; 
+    align-self: stretch;
 }
 
 
@@ -30,7 +30,7 @@
     grid-template-columns: repeat(2, auto);
     grid-template-rows: repeat(2, auto);
     gap: 26px 40px;
-        
+
 }
 
 .about-project__subtitle {
@@ -51,14 +51,14 @@
     padding: 96px 70px 110px;
     display: grid;
     grid-auto-flow: column;
-    grid-template-columns: auto;
+    grid-template-columns: 140px;
     grid-template-rows: repeat(2, 36px);
 }
 
 .about-project__time-number {
     margin: 0;
-    color: #000; 
-    background-color:#F2F2F2;
+    color: #000;
+    background-color: #F2F2F2;
     font-size: 14px;
     font-weight: 400;
     line-height: 17px;
@@ -99,7 +99,7 @@
     .about-project__info-container {
         max-width: 660px;
         padding: 70px 50px 0;
-        gap: 22px 30px;    
+        gap: 22px 30px;
     }
 
     .about-project__text {
@@ -108,11 +108,10 @@
 
     .about-project__time-container {
         padding: 93px 50px 90px;
-        grid-template-columns: auto;
+        grid-template-columns: 140px;
     }
-    
-    
 }
+
 @media screen and (max-width: 456px) {
     .about-project__title-container {
         max-width: 284px;
@@ -126,7 +125,7 @@
         padding: 60px 18px 0;
         grid-template-columns: auto;
         grid-template-rows: repeat(4, auto);
-        gap: 16px;    
+        gap: 16px;
     }
 
     .about-project__subtitle {
@@ -141,17 +140,18 @@
     .about-project__time-container {
         max-width: 284px;
         padding: 60px 18px 69px;
+        grid-template-columns: 100px;
         grid-template-rows: repeat(2, 35px);
     }
-    
+
     .about-project__time-number {
         font-size: 11px;
         line-height: 13px;
     }
-    
+
     .about-project__time-about {
         font-size: 11px;
         line-height: 13px;
     }
-    
+
 }
