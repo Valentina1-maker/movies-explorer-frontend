@@ -22,7 +22,7 @@ function Movies() {
             <section className="movies">
                 <div className="header__movies">
                     <Link to="/" className="header__logo_movies" />
-                    <button type="button" onClick={handleSideBarState} class="header__sidebar-button"></button>
+                    <button type="button" onClick={handleSideBarState} className="header__sidebar-button"></button>
                     <HeaderNavigationAccount />
                 </div>
                 <SearchForm />
