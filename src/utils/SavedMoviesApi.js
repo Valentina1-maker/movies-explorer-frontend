@@ -1,3 +1,5 @@
+export const BASE_URL = process.env.REACT_APP_API
+
 class SavedMoviesApi {
     constructor({ url }) {
       this._url = url;
@@ -42,5 +44,5 @@ class SavedMoviesApi {
 }
 
 export default new SavedMoviesApi({
-  url: 'http://localhost:3001',
+  url: BASE_URL,
 })
