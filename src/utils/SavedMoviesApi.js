@@ -19,8 +19,8 @@ class SavedMoviesApi {
         .then((result) => result.data);
     }
 
-    deleteMovie(movie) {
-      return fetch(`${this._url}/movies/${movie.movieId}`, {
+    deleteMovie(id) {
+      return fetch(`${this._url}/movies/${id}`, {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',

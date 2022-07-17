@@ -1,6 +1,5 @@
 import './MoviesCard.css';
 import { useState, useEffect } from "react";
-// import { useLocation } from "react-router-dom"
 
 function MoviesCard({
   movie = {},
@@ -9,41 +8,31 @@ function MoviesCard({
   onSaveMovie,
   inSavedPage
 }) {
-  const [isSaved, setIsSaved] = useState(false);
-  // const { pathname } = useLocation();
+  const [savedId, setSavedId] = useState('');
 
   useEffect(() => {
+    if (!savedMovies.length) return
+
     checkIsSaved()
-  }, [])
-
-  function handleSaveMovie() {
-    onSaveMovie(movie).then((state) => {
-      state && setIsSaved(true)
-    })
-  }
-
-  function handleDeleteSavedMovie() {
-    onDeleteMovie(movie).then((state) => {
-      state && setIsSaved(false)
-    })
-  }
+  }, [savedMovies])
 
   function checkIsSaved() {
-    const searchMovie = savedMovies.find(item => item.movieId === movie.movieId)
-    searchMovie ? setIsSaved(true) : setIsSaved(false) //если фильм сохранненый кнопка лайка активная, если нет - неактивная
+    const saved = savedMovies.find(savedMovie => savedMovie.movieId === movie.movieId)
+
+    saved ? setSavedId(saved.id) : setSavedId('')
   }
 
   function renderButton() {
     const DeleteButtonInSavedPage = (
       <button
-        onClick={handleDeleteSavedMovie}
+        onClick={() => onDeleteMovie(savedId)}
         className="card__delete-button"
       />
     )
 
     const DeleteButton = (
       <button
-        onClick={handleDeleteSavedMovie}
+        onClick={() => onDeleteMovie(savedId)}
         className="card__like-button card__like-button_liked"
       />
     )
@@ -52,29 +41,41 @@ function MoviesCard({
     const SaveButton = (
       <button
         type="button"
-        onClick={handleSaveMovie}
+        onClick={() => onSaveMovie(movie)}
         className="card__like-button"
       />
     )
 
-    if (isSaved) {
+    if (savedId) {
       return inSavedPage ? DeleteButtonInSavedPage : DeleteButton
     } else {
       return SaveButton
     }
   }
 
-  if (inSavedPage && !isSaved) {
+  if (inSavedPage && !savedId) {
     return ''
   } else {
     return (
       <div className="card">
-        <img className="card__picture" src={movie.image} alt="Здесь изображение фильма"  />
+        <a href={movie.trailerLink} target="_blank" rel="noreferrer">
+          <img className="card__picture" src={movie.image} alt="Здесь изображение фильма"  />
+        </a>
+
         <div className="card__description">
-          <h2 className="card__title">{movie.nameRU}</h2>
+          <h2 className="card__title">
+            {movie.nameRU}
+          </h2>
           { renderButton() }
         </div>
-        <p className="card__duration">{movie.duration} мин</p>
+
+        <p className="card__duration">
+          {
+            movie.duration > 60
+              ? `${Math.floor(movie.duration / 60)} ч ${movie.duration % 60 ? `${movie.duration % 60} мин` : ''}`
+              : `${movie.duration} мин`
+          }
+        </p>
       </div>
     );
   }

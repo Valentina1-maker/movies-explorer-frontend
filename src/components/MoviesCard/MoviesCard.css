@@ -27,7 +27,7 @@
   display: flex;
   width: 100%;
   justify-content: space-between;
-  flex-wrap: wrap;
+  cursor: default;
 }
 
 .card__title {
@@ -38,6 +38,10 @@
   text-overflow: ellipsis;
   overflow: hidden;
   color: #000000;
+  width: 100%;
+  white-space: nowrap;
+  padding-right: 10px;
+  cursor: default;
 }
 
 .card__like-button {
@@ -45,9 +49,13 @@
   cursor: pointer;
   padding: 0;
   border: none;
-  width: 24px;
-  height: 24px;
+  width: 28px;
+  height: 28px;
   background: url("../../images/likeOff.svg");
+  flex-shrink: 0;
+  min-width: 28px;
+  min-height: 28px;
+  background-size: cover;
 }
 
 .card__like-button_liked {
@@ -63,9 +71,10 @@
   cursor: pointer;
   padding: 0;
   border: none;
-  width: 24px;
-  height: 24px;
-  background: url("../../images/delete.svg");
+  width: 28px;
+  height: 28px;
+  background: url("../../images/delete.svg") no-repeat;
+  flex-shrink: 0;
 }
 
 .card__delete-button:hover {
@@ -75,13 +84,13 @@
 .card__duration {
   display: flex;
   margin: 0;
-  padding: 0;
-  padding-left: 12px;
+  padding: 0 0 0 12px;
   font-weight: normal;
   font-size: 11px;
   line-height: 13px;
   max-width: 100%;
   color: #A0A0A0;
+  cursor: default;
 }
 
 

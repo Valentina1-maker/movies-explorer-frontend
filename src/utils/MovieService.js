@@ -22,7 +22,8 @@ export const mapSavedMovie = (movie) => {
   return {
     ...defaultMovieMap(movie),
     image: movie.image,
-    movieId: movie._id,
+    movieId: movie.movieId,
+    id: movie._id,
     thumbnail: movie.thumbnail,
     trailerLink: movie.trailer,
   }

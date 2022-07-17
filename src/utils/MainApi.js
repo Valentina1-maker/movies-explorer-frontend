@@ -1,4 +1,4 @@
-export const BASE_URL = "http://localhost:3001";
+export const BASE_URL = process.env.REACT_APP_API
 
 const handleResponse = (res) =>
   res.ok ? res.json() : Promise.reject(res.json());

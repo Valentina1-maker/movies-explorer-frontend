@@ -21,23 +21,27 @@ import {useState} from 'react'
 import { getCalculatePerPageFunc } from '../../utils/MovieService'
 
 function App() {
-  const [countPerPage, setCountPerPage] = useState(0)
-  const [initStartCount, setInitStartCount] = useState(0)
+  const [countPerPage, setCountPerPage] = useState(0);
+  const [initStartCount, setInitStartCount] = useState(0);
+  const [userLoaded, setUserLoaded] = useState(false);
   const [loggedIn, setLoggedIn] = useState(true);
-  const [currentUser, setCurrentUser] = useState(null)
-  const history = useHistory()
+  const [currentUser, setCurrentUser] = useState(null);
+  const history = useHistory();
 
   const tokenCheck = () => {
     const token = localStorage.getItem("token"); //получаем сохраненные данные
     if (token) {
+      setUserLoaded(false)
       getUserInfo(token)
         .then((data) => {
           if (data.email) {
             setLoggedIn(true);
-            setCurrentUser(data)
+            setCurrentUser(data);
+            setUserLoaded(true)
           }
         })
-        .catch(() => {});
+        .catch(() => {
+        });
     } else {
       setLoggedIn(false);
       setCurrentUser(null)
@@ -51,6 +55,7 @@ function App() {
       .then((res) => {
         if (res.token) {
           localStorage.setItem("token", res.token);
+          setUserLoaded(true)
           history.push("/movies");
           setLoggedIn(true);
         }
@@ -63,8 +68,12 @@ function App() {
   };
 
   const onSignOut = () => {
-    localStorage.removeItem("token");
+    setCurrentUser(null)
     setLoggedIn(false);
+    localStorage.removeItem('token');
+    localStorage.removeItem('movies')
+    localStorage.removeItem('isShort')
+    localStorage.removeItem('searchRequest')
   };
 
   useEffect(() => {
@@ -95,6 +104,7 @@ function App() {
               exact
               path="/movies"
               countPerPage={countPerPage}
+              userLoaded={userLoaded}
               initStartCount={initStartCount}
               key={countPerPage + initStartCount + loggedIn}
               component={Movies}

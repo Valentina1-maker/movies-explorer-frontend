@@ -12,7 +12,7 @@ import {Link} from "react-router-dom";
 import {filterMovies, mapMovie, mapSavedMovie} from '../../utils/MovieService'
 import {useState} from 'react';
 
-function Movies({ initStartCount, countPerPage }) {
+function Movies({ initStartCount, countPerPage, userLoaded }) {
   const [isSideBarOpened, setIsSideBarOpened] = useState(false)
   const [searchRequest, setSearchRequest] = useState('')
   const [isShort, setIsShort] = useState(false)
@@ -21,8 +21,10 @@ function Movies({ initStartCount, countPerPage }) {
   const [savedMovies, setSavedMovies] = useState([])
 
   useEffect(() => {
-    loadSavedMovies()
-  }, [])
+    // eslint-disable-next-line no-console
+    console.log(userLoaded)
+    userLoaded && loadSavedMovies()
+  }, [userLoaded])
 
   function loadSavedMovies() {
     SavedMoviesApi.getMovies()
@@ -56,6 +58,14 @@ function Movies({ initStartCount, countPerPage }) {
     searchRequest && loadMovies()
   }
 
+  function updateSaved(movie, isSave) {
+    if (isSave) {
+      setSavedMovies([...savedMovies, { ...movie, id: movie._id }])
+    } else {
+      setSavedMovies(savedMovies.filter((m) => m.id !== movie.id))
+    }
+  }
+
   const filteredMovies = movies
     .filter((movie) =>
       filterMovies({ movie, searchRequest, isShort })
@@ -77,6 +87,8 @@ function Movies({ initStartCount, countPerPage }) {
       <MoviesCardList
         movies={filteredMovies.slice(0, initStartCount + countPerPage * page)}
         savedMovies={savedMovies}
+        updateSaved={updateSaved}
+        searchRequest={searchRequest}
       />
       {
         initStartCount + countPerPage * page + countPerPage <= filteredMovies.length

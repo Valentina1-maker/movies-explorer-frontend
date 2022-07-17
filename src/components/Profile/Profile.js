@@ -6,7 +6,7 @@ import {Link} from 'react-router-dom'
 import {updateUserInfo} from '../../utils/MainApi'
 import {useContext, useEffect, useState} from 'react'
 
-function Profile({ isSideBarOpened, handleSideBarState, onSignOut, unUpdate }) {
+function Profile({ isSideBarOpened, handleSideBarState, onSignOut, onUpdate }) {
   const userData = useContext(CurrentUserContext)
 
   const [changed, setChanged] = useState([])
@@ -43,6 +43,7 @@ function Profile({ isSideBarOpened, handleSideBarState, onSignOut, unUpdate }) {
     updateUserInfo({ email, name })
       .then((res) => {
         setChanged([])
+        onUpdate()
       })
       .catch((err) => {
         err.then(({ message = '', validation }) => {

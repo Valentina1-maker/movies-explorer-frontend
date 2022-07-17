@@ -1,5 +1,4 @@
 import "./SavedMovies.css"
-import ButtonCardsMore from '../ButtonCardsMore/ButtonCardsMore'
 import Footer from "../Footer/Footer";
 import HeaderNavigationAccount from "../HeaderNavigationAccount/HeaderNavigationAccount";
 import MoviesCardList from "../MoviesCardList/MoviesCardList";
@@ -12,11 +11,10 @@ import { useEffect } from 'react'
 import { useState } from 'react';
 import {filterMovies, mapSavedMovie} from '../../utils/MovieService'
 
-function SavedMovies({ initStartCount, countPerPage }) {
+function SavedMovies() {
   const [isSideBarOpened, setIsSideBarOpened] = useState(false)
   const [searchRequest, setSearchRequest] = useState('')
   const [isShort, setIsShort] = useState(false)
-  const [page, setPage] = useState(0)
   const [movies, setMovies] = useState([])
 
   useEffect(() => {
@@ -29,6 +27,14 @@ function SavedMovies({ initStartCount, countPerPage }) {
       .then((movies) => {
         setMovies(movies)
       })
+  }
+
+  function updateSaved(movie, isSave) {
+    if (isSave) {
+      setMovies([...movies, { ...movie, id: movie._id }])
+    } else {
+      setMovies(movies.filter((m) => m.id !== movie.id))
+    }
   }
 
   const handleSideBarState = () => {
@@ -49,23 +55,27 @@ function SavedMovies({ initStartCount, countPerPage }) {
     <section className="savedmovies">
       <div className="header__movies">
         <Link to="/" className="header__logo_movies" />
-        <button type="button" onClick={handleSideBarState} className="header__sidebar-button" />
+        <button
+          type="button"
+          onClick={handleSideBarState}
+          className="header__sidebar-button"
+        />
         <HeaderNavigationAccount />
       </div>
 
-      <SearchForm onUpdateFilters={setFilters} />
+      <SearchForm
+        onUpdateFilters={setFilters}
+        isShort={isShort}
+        searchRequest={searchRequest}
+      />
       <MoviesCardList
-        movies={filteredMovies.slice(0, initStartCount + countPerPage * page)}
+        movies={filteredMovies}
         inSavedPage
         savedMovies={movies}
         searchRequest={searchRequest}
+        updateSaved={updateSaved}
         isShort={isShort}
       />
-      {
-        initStartCount + countPerPage * page + countPerPage <= filteredMovies.length
-          ? <ButtonCardsMore onLoadMore={() => setPage(page + 1)} />
-          : ''
-      }
       <Footer />
       <SideBar
         isSideBarOpened={isSideBarOpened}

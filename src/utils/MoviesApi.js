@@ -15,5 +15,5 @@ class MoviesApi {
 }
 
 export default new MoviesApi({
-  url: 'https://api.nomoreparties.co/beatfilm-movies',
+  url: process.env.REACT_APP_GLOBAL_API,
 })
