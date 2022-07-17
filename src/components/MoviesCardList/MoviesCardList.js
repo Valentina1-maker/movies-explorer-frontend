@@ -1,13 +1,15 @@
 import "./MoviesCardList.css";
 import MoviesCard from "../MoviesCard/MoviesCard";
 import SavedMoviesApi from '../../utils/SavedMoviesApi'
+import Preloader from '../Preloader/Preloader'
 
 function MoviesCardList({
   movies = [],
   savedMovies = [],
   inSavedPage = false,
   updateSaved,
-  searchRequest
+  searchRequest,
+  isLoading
 }) {
   function onDeleteMovie(id) {
     return SavedMoviesApi.deleteMovie(id)
@@ -42,8 +44,16 @@ function MoviesCardList({
   return (
     <section className="cards">
       {
-        searchRequest && !movies.length
+        searchRequest && !movies.length && !isLoading
           ? <div className="cards__not-found">Ничего не найдено </div>
+          : ''
+      }
+
+      {
+        isLoading
+          ? (
+            <Preloader />
+          )
           : ''
       }
       <div className="cards__container">

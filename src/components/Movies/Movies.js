@@ -19,18 +19,24 @@ function Movies({ initStartCount, countPerPage, userLoaded }) {
   const [page, setPage] = useState(0)
   const [movies, setMovies] = useState([])
   const [savedMovies, setSavedMovies] = useState([])
+  const [isLoading, setIsLoading] = useState(false)
 
   useEffect(() => {
-    // eslint-disable-next-line no-console
-    console.log(userLoaded)
     userLoaded && loadSavedMovies()
   }, [userLoaded])
 
   function loadSavedMovies() {
+    setIsLoading(true)
     SavedMoviesApi.getMovies()
       .then((data) => data.map((item) => mapSavedMovie(item)))
-      .then((movies) => setSavedMovies(movies))
-      .catch(() => {})
+      .then((movies) => {
+        setIsLoading(false)
+        setSavedMovies(movies)
+      })
+      .catch(() => {
+        setIsLoading(false)
+        alert('Произошла ошибка загрузки списка сохраненных видео')
+      })
   }
 
   function loadMovies() {
@@ -38,12 +44,18 @@ function Movies({ initStartCount, countPerPage, userLoaded }) {
     if (storageMovies) {
       setMovies(JSON.parse(storageMovies))
     } else {
+      setIsLoading(true)
       MoviesApi
         .getMovies()
         .then((data) => data.map((item) => mapMovie(item)))
         .then((movies) => {
+          setIsLoading(false)
           setMovies(movies)
           localStorage.setItem('movies', JSON.stringify(movies))
+        })
+        .catch(() => {
+          setIsLoading(false)
+          alert('Произошла ошибка загрузки списка видео')
         })
     }
   }
@@ -89,6 +101,7 @@ function Movies({ initStartCount, countPerPage, userLoaded }) {
         savedMovies={savedMovies}
         updateSaved={updateSaved}
         searchRequest={searchRequest}
+        isLoading={isLoading}
       />
       {
         initStartCount + countPerPage * page + countPerPage <= filteredMovies.length

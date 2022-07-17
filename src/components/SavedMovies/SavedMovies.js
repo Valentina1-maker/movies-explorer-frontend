@@ -15,6 +15,7 @@ function SavedMovies() {
   const [isSideBarOpened, setIsSideBarOpened] = useState(false)
   const [searchRequest, setSearchRequest] = useState('')
   const [isShort, setIsShort] = useState(false)
+  const [isLoading, setIsLoading] = useState(false)
   const [movies, setMovies] = useState([])
 
   useEffect(() => {
@@ -22,10 +23,16 @@ function SavedMovies() {
   }, [])
 
   function loadSavedMovies() {
+    setIsLoading(true)
     SavedMoviesApi.getMovies()
       .then((data) => data.map((item) => mapSavedMovie(item)))
       .then((movies) => {
         setMovies(movies)
+        setIsLoading(false)
+      })
+      .catch(() => {
+        alert('Произошла ошибка загрузки списка сохраненных видео')
+        setIsLoading(false)
       })
   }
 
@@ -75,6 +82,7 @@ function SavedMovies() {
         searchRequest={searchRequest}
         updateSaved={updateSaved}
         isShort={isShort}
+        isLoading={isLoading}
       />
       <Footer />
       <SideBar
