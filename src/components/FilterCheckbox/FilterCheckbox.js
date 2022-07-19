@@ -1,4 +1,5 @@
 import './FilterCheckbox.css';
+import React from 'react'
 import {useEffect, useRef} from 'react'
 
 function FilterCheckbox({ onChange, isShort }) {

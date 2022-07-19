@@ -19,6 +19,7 @@ import {debounce} from '../../utils/common'
 import {getUserInfo, login} from '../../utils/MainApi'
 import {useState} from 'react'
 import { getCalculatePerPageFunc } from '../../utils/MovieService'
+import NotFound from '../NotFound/NotFound'
 
 function App() {
   const [countPerPage, setCountPerPage] = useState(0);
@@ -32,7 +33,7 @@ function App() {
     const token = localStorage.getItem("token"); //получаем сохраненные данные
     if (token) {
       setUserLoaded(false)
-      getUserInfo(token)
+      return getUserInfo(token)
         .then((data) => {
           if (data.email) {
             setLoggedIn(true);
@@ -41,6 +42,7 @@ function App() {
           }
         })
         .catch(() => {
+          onSignOut()
         });
     } else {
       setLoggedIn(false);
@@ -55,9 +57,9 @@ function App() {
       .then((res) => {
         if (res.token) {
           localStorage.setItem("token", res.token);
-          setUserLoaded(true)
-          history.push("/movies");
-          setLoggedIn(true);
+          tokenCheck().then(() => {
+            history.push("/movies");
+          })
         }
       })
   };
@@ -76,11 +78,16 @@ function App() {
     localStorage.removeItem('searchRequest')
   };
 
+  const resizeListener = debounce(calculateCountPerPage, 250)
+
   useEffect(() => {
     calculateCountPerPage()
     tokenCheck();
 
-    window.addEventListener('resize', debounce(calculateCountPerPage, 250))
+    window.addEventListener('resize', resizeListener)
+    return function cleanup() {
+      window.removeEventListener('resize', resizeListener)
+    }
   }, [])
 
   return (
@@ -136,7 +143,7 @@ function App() {
             </Route>
 
             <Route path="*">
-              <Redirect to="/" />
+              <NotFound />
             </Route>
           </Switch>
         </CurrentUserContext.Provider>

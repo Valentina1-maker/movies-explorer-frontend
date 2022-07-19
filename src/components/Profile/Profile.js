@@ -1,6 +1,8 @@
 import "./Profile.css";
 import HeaderNavigationAccount from "../HeaderNavigationAccount/HeaderNavigationAccount";
+import React from 'react'
 import SideBar from "../SideBar/SideBar";
+import Toaster from '../Toaster/Toaster'
 import {CurrentUserContext} from '../../contexts'
 import {Link} from 'react-router-dom'
 import {updateUserInfo} from '../../utils/MainApi'
@@ -9,6 +11,7 @@ import {useContext, useEffect, useState} from 'react'
 function Profile({ isSideBarOpened, handleSideBarState, onSignOut, onUpdate }) {
   const userData = useContext(CurrentUserContext)
 
+  const [toasterText, setToasterText] = useState('')
   const [changed, setChanged] = useState([])
   const [email, setEmail] = useState('')
   const [name, setName] = useState('')
@@ -41,9 +44,10 @@ function Profile({ isSideBarOpened, handleSideBarState, onSignOut, onUpdate }) {
     e.preventDefault()
     setError('')
     updateUserInfo({ email, name })
-      .then((res) => {
+      .then(() => {
         setChanged([])
         onUpdate()
+        setToasterText('Успешно обновлено!')
       })
       .catch((err) => {
         err.then(({ message = '', validation }) => {
@@ -58,6 +62,8 @@ function Profile({ isSideBarOpened, handleSideBarState, onSignOut, onUpdate }) {
 
   return (
     <>
+      <Toaster text={toasterText} reset={() => setToasterText('') }/>
+
       <div className="header__movies">
         <Link to="/" className="header__logo_movies" />
         <button type="button" onClick={handleSideBarState} className="header__sidebar-button" />

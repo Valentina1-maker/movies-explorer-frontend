@@ -1,0 +1,46 @@
+.toaster {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 200px;
+  padding: 10px;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  box-sizing: border-box;
+  border-radius: 5px;
+  background: #aab7ff;
+  opacity: 0;
+  display: none;
+  transform: translateY(100px);
+}
+
+.toaster_active {
+  display: block;
+  animation: 0.4s toasterFadeIn ease-in forwards;
+}
+
+.toaster_fade-out {
+  animation: 0.4s toasterFadeOut ease-out forwards;
+}
+
+@keyframes toasterFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+@keyframes toasterFadeOut {
+  0% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+}

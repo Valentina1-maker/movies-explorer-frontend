@@ -1,6 +1,7 @@
 import { Route, Redirect } from "react-router-dom";
 import {useContext} from 'react'
 import {CurrentUserContext} from '../contexts'
+import React from 'react'
 
 const ProtectedRoute = ({ component: Component, ...props }) => {
   const { loggedIn } = useContext(CurrentUserContext)

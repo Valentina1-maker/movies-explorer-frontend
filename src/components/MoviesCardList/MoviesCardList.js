@@ -1,7 +1,8 @@
 import "./MoviesCardList.css";
 import MoviesCard from "../MoviesCard/MoviesCard";
-import SavedMoviesApi from '../../utils/SavedMoviesApi'
 import Preloader from '../Preloader/Preloader'
+import React from 'react'
+import SavedMoviesApi from '../../utils/SavedMoviesApi'
 
 function MoviesCardList({
   movies = [],

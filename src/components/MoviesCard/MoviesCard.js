@@ -1,4 +1,5 @@
 import './MoviesCard.css';
+import React from 'react'
 import { useState, useEffect } from "react";
 
 function MoviesCard({

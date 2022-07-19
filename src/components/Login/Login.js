@@ -12,13 +12,17 @@ function Login({ handleLogin }) {
     setError('')
     handleLogin(data.get('email'), data.get('password'))
       .catch((err) => {
-        err.then(({ message = '', validation }) => {
-          if (validation) {
-            setError(validation.body.message)
-          } else {
-            setError(message)
-          }
-        })
+        if (err.then) {
+          err.then(({ message = '', validation }) => {
+            if (validation) {
+              setError(validation.body.message)
+            } else {
+              setError(message)
+            }
+          })
+        } else {
+          setError('Произошла ошибка')
+        }
       })
   };
 
