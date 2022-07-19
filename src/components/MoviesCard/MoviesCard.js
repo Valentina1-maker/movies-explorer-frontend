@@ -12,8 +12,6 @@ function MoviesCard({
   const [savedId, setSavedId] = useState('');
 
   useEffect(() => {
-    if (!savedMovies.length) return
-
     checkIsSaved()
   }, [savedMovies])
 
